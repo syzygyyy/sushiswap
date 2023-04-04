@@ -60,7 +60,7 @@ const fetcher = ({
 
   return fetch(_url.href)
     .then((res) => res.json())
-    .catch((e) => console.log(stringify(e)))
+    .catch((e) => {})
 }
 
 export const TokenTable: FC = () => {

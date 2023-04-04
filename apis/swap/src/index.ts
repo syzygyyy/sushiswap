@@ -78,7 +78,7 @@ server.get('/v0', async (request) => {
   const tokenStartTime = performance.now()
   const [fromToken, toToken] = await Promise.all([getToken(chainId, fromTokenId), getToken(chainId, toTokenId)])
   const tokenEndTime = performance.now()
-  console.log(`tokens (${(tokenEndTime - tokenStartTime).toFixed(0)} ms) `)
+  
 
   const dataFetcher = dataFetcherMap.get(chainId)
   if (!dataFetcher) {
@@ -111,11 +111,7 @@ server.get('/v0', async (request) => {
   const dataFetcherStartTime = performance.now()
   await dataFetcher.fetchPoolsForToken(fromToken, toToken)
   const dataFetcherEndTime = performance.now()
-    console.log(
-      `dataFetcher.fetchPoolsForToken(fromToken, toToken) (${(dataFetcherEndTime - dataFetcherStartTime).toFixed(
-        0
-      )} ms) `
-    )
+    
 
   // console.log('ROUTE:')
   // for (const leg of bestRoute.legs) {
@@ -130,7 +126,7 @@ server.get('/v0', async (request) => {
   // }
 
   const routeEndTime = performance.now()
-  console.log(`findSpecialRoute(..) (${(routeEndTime - routeStartTime).toFixed(0)} ms) `)
+  
   return {
     route: {
       status: bestRoute?.status,
