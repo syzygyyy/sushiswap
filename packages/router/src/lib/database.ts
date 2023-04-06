@@ -90,7 +90,7 @@ export async function getAllPools(client: PrismaClient, args: typeof AllPools._o
         `${args.chainId}-${args.protocol}-${args.version} Fetched a batch of pools with ${result.length} 
          cursor: ${cursor}, total: ${totalCount}.`
       )
-    } while (cursor != null)
+    } while (cursor !== null)
     const flatResult = results.flat()
     console.debug(`${args.chainId}-${args.protocol}-${args.version} Fetched ${flatResult.length}`)
 

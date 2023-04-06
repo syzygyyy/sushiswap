@@ -60,7 +60,7 @@ async function start(client: PrismaClient) {
     } else {
       console.log(`No pools needs whitelisting.`)
     }
-  } while (cursor != null)
+  } while (cursor !== null)
 
   const updatePoolsBatchSize = 200
   let updatePoolCount = 0

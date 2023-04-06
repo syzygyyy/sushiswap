@@ -52,7 +52,7 @@ async function getPools(client: PrismaClient, chainId: ChainId) {
         1
       )}s). cursor: ${cursor}, total: ${totalCount}`
     )
-  } while (cursor != null)
+  } while (cursor !== null)
 
   const endTime = performance.now()
 
