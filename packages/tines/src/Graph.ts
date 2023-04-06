@@ -220,12 +220,12 @@ export class Edge {
     if (directionNew) {
       const calc = this.pool.calcOutByIn(amountInNew, true).out
       const res = closeValues(amountOutNew, calc, 1e-6)
-      if (!res) console.log('Err 225-1 !!', amountOutNew, calc, Math.abs(calc / amountOutNew - 1))
+      if (!res) {}
       return res
     } else {
       const calc = this.pool.calcOutByIn(amountOutNew, false).out
       const res = closeValues(amountInNew, calc, 1e-6)
-      if (!res) console.log('Err 225-2!!', amountInNew, calc, Math.abs(calc / amountInNew - 1))
+      if (!res) {}
       return res
     }
   }
@@ -629,7 +629,7 @@ export class Graph {
         for (let v: Vertice | undefined = finish; v?.bestSource; v = v.getNeibour(v.bestSource)) {
           bestPath.unshift(v.bestSource)
         }
-        DEBUG(() => console.log(debug_info))
+        DEBUG(() => {})
         if (Number.isNaN(finish.bestTotal)) {
           // eslint-disable-next-line no-debugger
           debugger
@@ -745,7 +745,7 @@ export class Graph {
         for (let v: Vertice | undefined = finish; v?.bestSource; v = v.getNeibour(v.bestSource)) {
           bestPath.push(v.bestSource)
         }
-        DEBUG(() => console.log(debug_info))
+        DEBUG(() => {})
         return {
           path: bestPath,
           input: finish.bestIncome,
