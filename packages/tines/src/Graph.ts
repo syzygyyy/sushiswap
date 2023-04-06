@@ -270,7 +270,7 @@ export class Edge {
           `"${this.pool.address}" ${inPrev} ${to?.bestIncome} ${from.bestIncome}`
         )
       }
-    }, `Error 225`)
+    }, "Error 225")
   }
 }
 
@@ -606,7 +606,7 @@ export class Graph {
     const processedVert = new Set<Vertice>()
     const nextVertList = [start] // TODO: Use sorted Set!
 
-    let debug_info = ``
+    let debug_info = ""
     let checkLine = 0
     for (;;) {
       let closestVert: Vertice | undefined
