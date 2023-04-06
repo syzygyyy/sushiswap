@@ -111,7 +111,7 @@ export async function maker(args: Arguments) {
 
   console.log(chalk.red('Maker, summary'))
   console.log(table.toString())
-  console.log(`Total value: ` + chalk.green(`${numeral(totalValue).format('$0.00a')}`))
+  console.log("Total value: " + chalk.green(`${numeral(totalValue).format('$0.00a')}`))
 }
 
 function printMakerTable(
