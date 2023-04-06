@@ -74,7 +74,7 @@ async function start(productionClient: PrismaClient, previewClient: PrismaClient
         ).toFixed(1)}s). cursor: ${cursor}, pool count that needs whitelisting: ${result.length}`
       )
     } else {
-      console.log(`No pools needs whitelisting.`)
+      console.log("No pools needs whitelisting.")
     }
   } while (cursor != null)
 
