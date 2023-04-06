@@ -23,7 +23,7 @@ export async function whitelistPools2() {
     await start(productionClient, previewClient)
 
     const endTime = performance.now()
-    console.log(`COMPLETED (${((endTime - startTime) / 1000).toFixed(1)}s). `)
+    
   } catch (e) {
     console.error(e)
     await previewClient.$disconnect()
@@ -46,7 +46,7 @@ async function start(productionClient: PrismaClient, previewClient: PrismaClient
   })
 
   const approvedTokens = approvedTokensResult.map((token) => token.id)
-  console.log(`Fetched ${approvedTokens.length} tokens (approved and not fee on transfer).`)
+  
 
   const batchSize = 10000
   let cursor = null
@@ -67,14 +67,9 @@ async function start(productionClient: PrismaClient, previewClient: PrismaClient
     poolsToUpdate.push(...result.map((pool) => pool.id))
     const requestEndTime = performance.now()
     if (result.length > 0) {
-      console.log(
-        `Fetched a batch of pool addresses with ${result.length} (${(
-          (requestEndTime - requestStartTime) /
-          1000
-        ).toFixed(1)}s). cursor: ${cursor}, pool count that needs whitelisting: ${result.length}`
-      )
+      
     } else {
-      console.log(`No pools needs whitelisting.`)
+      
     }
   } while (cursor != null)
 
@@ -94,10 +89,10 @@ async function start(productionClient: PrismaClient, previewClient: PrismaClient
     )
     const poolsUpdated = await Promise.allSettled(batchToUpdate)
 
-    console.log(`LOAD - ${poolsUpdated.length} pools whitelisted.`)
+    
     updatePoolCount += poolsUpdated.length
   }
-  console.log(`LOAD - COMPLETE, ${updatePoolCount} pools whitelisted.`)
+  
 }
 
 async function getPoolsAddresses(
