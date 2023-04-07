@@ -15,7 +15,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     changefreq: 'never',
   }))
 
-  console.log(tokens.sort((a, b) => b.liquidityUSD - a.liquidityUSD)[0])
+  
 
   return getServerSideSitemap(ctx, fields)
 }
